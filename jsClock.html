@@ -1,0 +1,38 @@
+<!Doctype html>
+<html>
+    <head>
+        <title>Clock</title>
+        <style type="text/css">
+            h1 {
+                color:#FF5722;
+            }
+            span {
+              color:#000;
+            }
+        </style>
+    </head>
+    <body >  
+        <h1>
+            Time 24 hrs: <span class="clock24"></span>
+        </h1>
+        <h1>
+            Time 12 hrs: <span class="clock12"></span>
+        </h1>
+        <script>
+           function clock(){
+               setInterval(function(){
+                  var date = new Date(); 
+                  var hour = date.getHours(); 
+                  var minutes = date.getMinutes(); 
+                  var seconds = date.getSeconds(); 
+                  var miliSeconds = date.getMilliseconds();
+                  var getCurrentTime = hour + ":" +  minutes + ":" +  seconds //+ ":" + miliSeconds;
+                  document.querySelector(".clock24").innerHTML = getCurrentTime;
+                  document.querySelector(".clock12").innerHTML = date.toLocaleTimeString();
+
+               },1000)
+           }
+           clock();
+        </script>
+    </body>
+</html>
