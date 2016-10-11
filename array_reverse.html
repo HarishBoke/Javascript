@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Print the values of array in  reverse order</title>
+	</head>
+	<body>
+		<!-- <h2 id="printArray">Printed array: </h2> -->
+		<h2 id="printReverseArray">Printed array: </h2>
+		<button onclick=changeOrder()>Click to Reverse the Order</button>
+		<script>
+			var fruits = ['Apple','Banana','Orange','Greps','Gauva'];
+			document.getElementById('printReverseArray').innerHTML = fruits;
+			function changeOrder () {
+				var fruitsReverse = fruits.reverse();
+				document.getElementById('printReverseArray').innerHTML = fruitsReverse;
+			}
+		</script>
+	</body>
+</html>
