@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Biggest Number from Array</title>
+	</head>
+	<body>
+		<h1>Biggest Value is : <div id="demo"></div></h1>
+		
+		<script>
+			var biggestNumber = [10,20,50,9,100,20];
+			var foundNumber = Math.max.apply(null, biggestNumber);
+			document.getElementById('demo').innerHTML = foundNumber;
+
+			/*function bigNumber (biggestNumber) {
+				document.getElementById('demo').innerHTML =	foundNumber;
+			}
+			bigNumber();*/
+		</script>		
+	</body>
+</html>
