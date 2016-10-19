@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+	<head>
+		<title>find all employees whose salary is same as that in inputDataSet</title>
+		<style type="text/css">
+			table td, table th{
+				border:1px solid #ccc; padding:10px
+			}
+		</style>
+	</head>
+	<p>
+		<label>Search: </label> <input type="text" id="userInput" onchange="checkEmployeeMatch()" placeholder="search by Salary">
+	</p>
+
+	<body>
+		<table>
+			<colgroup>
+
+			</colgroup>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Employee Id</th>
+					<th>Salary</th>
+				</tr>
+			</thead>
+			<tbody id="employeesData">			
+			</tbody>
+		</table>
+		<br>
+
+		<!-- <h4>
+			Matched Employees: <h2 id="result"></h2>
+			<table id="employeesResultData">
+
+			</table>
+		</h4> -->
+
+		<script type="text/javascript">
+			var inputDataSet;
+			var largeArray = [ 
+				{'Name' : 'Harish',
+				'id' : '123',
+				'salary': 2500
+				},
+
+				{'Name' : 'Abhi',
+				'id' : '124',
+				'salary': 2510
+				},
+
+				{'Name' : 'Sagar',
+				'id' : '125',
+				'salary': 2520
+				},
+
+				{'Name' : 'Pritesh',
+				'id' : '126',
+				'salary': 2500
+				},
+
+				{'Name' : 'Amol',
+				'id' : '127',
+				'salary': 2500
+				}
+			];
+			var data = "";
+			init();
+
+			function init(){
+				for(var i = 0; i < largeArray.length; i++){
+					data += "<tr id='rowid_"+i+"'><td>"+largeArray[i].Name+"</td><td>"+largeArray[i].id+"</td><td>"+largeArray[i].salary+"</td></tr>";
+					document.getElementById("employeesData").innerHTML = data;
+
+				}
+			}
+			function checkEmployeeMatch () {
+				inputDataSet = document.getElementById("userInput").value;
+				data = "";
+				if (!inputDataSet) {
+					init();
+				};
+				for(var j = 0; j < largeArray.length; j++){
+					if(parseInt(inputDataSet) == largeArray[j].salary){
+							data += "<tr id='rowid_"+j+"'><td>"+largeArray[j].Name+"</td><td>"+largeArray[j].id+"</td><td>"+largeArray[j].salary+"</td></tr>";
+							document.getElementById("employeesData").innerHTML = data;
+							//document.getElementById("employeesResultData").innerHTML = data;
+							//break;
+					}
+					/*else {
+						document.getElementById("employeesData").innerHTML = "<br> No Data Matched";
+					}*/
+				}
+					//document.getElementById("employeesData").innerHTML = data;
+			}
+		</script>
+	</body>
+</html>
+
+<!-- Var inputDataSet = {“salary” : 2500 }
+
+From the large Array, find all employees whose salary is same as that in inputDataSet. If the salary is same, those objects should reside in the largeArray. Other objects whose salary doesn’t match as provided in inputDataSet, those should be removed from largeArray.
+Since nested loop is required, for one loop (either outer or inner loop) you should use $.each. For the other loop, you can use for loop.
+The final items present in LargeArray should be printed on the UI.
+You need to include jquery’s JS file since $.each is used.
+After the items are deleted from largeArray, to print the record on the UI, try converting the entire array to a string (R&D on this – json.stringify – learn this method and use this to print the final array on the UI)
+
+ -->
