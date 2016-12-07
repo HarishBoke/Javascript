@@ -1,0 +1,30 @@
+<Doctype html5>
+<html>
+  <head>
+      <title>Maximum differance in the Array</title>
+  </head>
+  <body>
+  <div id="result"></div>
+    <script>
+        function maxDiff(arr) {
+          var max_diff = arr[1] - arr[0];
+          var i, j;
+          for (i = 0; i < arr.length; i++) {
+            for (j = i + 1; j < arr.length; j++) {
+              if (arr[j] - arr[i] > max_diff)
+                max_diff = arr[j] - arr[i];
+            }
+          }
+          return max_diff;
+        }
+
+        function init() {
+          //var arr = [1, 2, 90, 10, 110];
+          var arr = [7, 2, 3, 10, 2, 4, 8, 1];
+          document.getElementById("result").innerHTML = "Maximum difference is " + maxDiff(arr);
+        }
+        init() 
+    </script>
+  </body>
+</html>
+
