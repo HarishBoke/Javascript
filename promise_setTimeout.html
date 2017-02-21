@@ -10,11 +10,14 @@
 	<script type="text/javascript">
 			promiseTimeout().then(function(response){
 				document.write("printing response form promise" + response);
+			}).then(function(res){
+				// learning asyc call this is 
+					alert("ideally should call after print but called first cause it is asyc");
 			});
 			function promiseTimeout() {
 				return new Promise(function(resolve, reject){
 						setTimeout(function(){
-							resolve("Harish i promised u to response");
+							resolve(" => Harish i promised u to response.");
 						}, 2000);
 				});
 			}
