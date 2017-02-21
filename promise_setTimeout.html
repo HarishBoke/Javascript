@@ -1,0 +1,23 @@
+<!Doctype html>
+<html>
+<head>
+	<title>Promises basic setTimeout example</title>
+	<style type="text/css">
+
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+			promiseTimeout().then(function(response){
+				document.write("printing response form promise" + response);
+			});
+			function promiseTimeout() {
+				return new Promise(function(resolve, reject){
+						setTimeout(function(){
+							resolve("Harish i promised u to response");
+						}, 2000);
+				});
+			}
+	</script>
+</body>
+</html>
