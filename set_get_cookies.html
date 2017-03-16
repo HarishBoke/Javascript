@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Javascript Basic cookie assignment</title>
+	</head>
+	<body>
+		<p>
+			<em>Problem Statment:</em> When user select color it should set as document background color and it should persist in new session as well.
+		</p>
+		<p>
+			<em>Solution:</em>
+			Set color to document bg on change of select box and same time save cookie with expiry so with new session onload we can read existing cookies if present  and set bgcolor to the document
+		</p>
+		<select id="selectColor" onChange="setColorCookie()">
+			<option value="Select Color">Select Color</option>
+			<option value="red">red</option>
+			<option value="green">green</option>
+			<option value="blue">blue</option>
+		</select>
+
+		<script type="text/javascript">
+				window.onload = function(){
+					if(document.cookie.length !== 0){
+						var getColorValue = document.cookie;
+						var splitValue = getColorValue.split("=");
+						document.bgColor = splitValue[1];
+					}
+				}
+				function setColorCookie(){
+					var setColor = document.getElementById("selectColor").value;
+					document.cookie = "color="+setColor+";expires=Tue, 25 Nov 2025 01:00:00 UTC;";
+					document.bgColor = setColor;
+					// set fix dropdown value in cookie
+					// check whether dropdown value is != select color
+				}
+		</script>
+	</body>
+</html>

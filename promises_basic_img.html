@@ -1,0 +1,46 @@
+<!Doctype html>
+<html>
+<head>
+	<title>Promises basic img call</title>
+	<style type="text/css">
+
+	</style>
+	<script type="text/javascript">
+		// Load img promise 
+			function loadImg(url){
+				return new Promise(function(resolve, reject){
+					let img = new Image();
+					img.onload = function(){
+						resolve(img)
+					}
+					img.onerror = function(){
+						let msg = "Could not load image at" + url
+						reject(new Error(msg))
+					}
+					img.src = url;
+				});
+			}
+
+			// bel
+			var imgURL = "http://placehold.it/350x150";
+
+			// created "create img element" component
+			/*let addImg = function(src){
+				var imgElement = document.createElement("img");
+				imgElement.src = src;
+				document.body.appendChild(imgElement);
+			};*/
+			loadImg(imgURL).then((img1) => {
+				//console.log(img1);
+				//addImg(img1.src);
+				document.body.appendChild(img1);
+			}).catch(function(err){
+				console.log("from reject/catch block " + err);
+				alert(err);
+			});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
