@@ -1,0 +1,45 @@
+<!Doctype html>
+    <html>
+        <head>
+            <title>Write a JavaScript program to display the current day and time in the following format.  Go to the editor
+                Sample Output : Today is : Friday. Current time is : 4 PM : 50 : 22</title>
+            <style>
+                .displayDay {
+                    color:blueviolet;
+                }
+                .displayTime {
+                    color:brown;
+                }
+            </style>
+        </head>
+        <body>
+
+            <h1>
+                <div class="displayDay" id="displayToday"> </div>
+                <div class="displayTime" id="displayTime"> </div>
+            </h1>
+            <script>
+                    const dayMapping = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]; 
+                    let todayRaw = new Date();
+                    let today = todayRaw.getDay();
+                    let todayHours = todayRaw.getHours();
+
+                    //time 12 conversion
+                    let suffix = (todayHours >= 12)? 'pm' : 'am';
+                    let hours = (todayHours > 12)? todayHours -12 : todayHours;
+                    let convertedHours = (hours == '00')? 12 : hours;
+                    //time 12 conversion - end
+
+                    let todayTime = convertedHours + suffix +  " : "  + todayRaw.getMinutes() + " : " + todayRaw.getSeconds();
+                    let convertedDay = dayMapping[today];
+                    
+                    document.getElementById("displayToday").innerHTML = "Today is = " +  convertedDay;
+                    document.getElementById("displayTime").innerHTML = "Current Time is = " + todayTime ;
+                   
+                    console.log("today is",dayMapping[today]);                    
+                    console.log("today time", todayTime); 
+                   
+                    
+            </script>   
+        </body>
+    </html>
