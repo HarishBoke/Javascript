@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript: Sort Array By Asc and DSC with inbuild function and logic</title>
+
+</head>
+<body>
+
+	<!-- expected Output -->
+		<h3>Expected Result the Followed Numbers should sort by ASC and DSC from [9,1,2,33,7,5,8] is : </h3>
+		<h2>Orignal Array: <em id="orgArray" style="color: blue; font-size: 22px;">[9,1,2,33,7,5,8] </em></h2>
+		<h2>ASC Sorted Array: <em id="resultASC" style="color: green; font-size: 22px;"></em></h2>
+		<h2>DSC Sorted Array<em id="resultDSC" style="color: green; font-size: 22px;"></em></h2>		 
+
+		<h2>ASC Sorted Array with logic and no built in functions<em id="resultDSClogic" style="color: green; font-size: 22px;"></em></h2>	
+	<!-- expected Output -->
+
+<script>
+	var array = [9,1,2,33,7,5,8];
+	//var array = ['x','v','w','a','c','e','b'];
+	
+	// Javascript method
+		//NOTE:: As javaascript sort does't understand digit wight and compares first digit only for right output we have to write below logic
+		var ASCarray = array.sort((a,b)=>a>b);
+
+		console.log("ASC Number are:", ASCarray);
+		document.getElementById("resultASC").innerHTML = ASCarray;
+
+		var DSCarray = array.sort((a,b)=>a<b);
+
+		console.log("DSC Number are:", DSCarray);
+		document.getElementById("resultDSC").innerHTML = DSCarray;
+
+
+		//trying logic 
+		var newArray = [9,1,2,33,7,5,8];
+
+		//ASC
+		for(let i = 0; i < newArray.length; i++){			
+			for(let x = i+1; x < newArray.length; x++){
+					if(newArray[i] > newArray[x]){	
+						var currentIndex = newArray[i];					
+						newArray[i] = newArray[x];
+						newArray[x] = currentIndex;
+						break;
+					}	
+								
+			}
+		}
+		console.log(newArray);
+		document.getElementById("resultDSClogic").innerHTML = newArray;
+
+		//DSC 
+		for(let i = 0; i < newArray.length; i++){
+			for(let j=i+1; j < newArray.length;j++){
+				if(newArray[i] <  newArray[j]){
+					var currentIndex = newArray[i];
+					newArray[i] = newArray[j];
+					newArray[j] = currentIndex;
+					break;
+				}
+
+			}
+		}
+		console.log("DSC",newArray);
+
+
+
+
+</script>
+</body>
+</html>

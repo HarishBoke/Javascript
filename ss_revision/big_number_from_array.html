@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript Find Big Number</title>
+
+</head>
+<body>
+
+	<!-- expected Output -->
+		<h3>Expected Result the big number form Big Number from [0,4,9,12,7] is : <em id="result" style="color: green; font-size: 22px;"></em></h3>
+		 
+	<!-- expected Output -->
+
+	<h3>Check console for output </h3>
+	<script>
+	let arrBigN = [0,4,9,12,7];
+	var bigFlag=0;
+	for(let i = 0; i < arrBigN.length; i++){
+		
+		if(arrBigN[i] > bigFlag){
+			bigFlag = arrBigN[i];
+		}
+	}
+	console.log("Your Big Number is:", bigFlag);
+	document.getElementById("result").innerHTML = bigFlag;
+
+	// before ES6 i.e ES5 
+		var es5Res = Math.max.apply(null, arrBigN) // 4
+		console.log("ES5 way", es5Res);
+	// else with ES6 spread Operator we can find with JS default Math.max
+	let resMath = Math.max(...arrBigN);
+	console.log("Max Number Method 2: spread and Math", resMath);
+
+</script>
+</body>
+</html>
