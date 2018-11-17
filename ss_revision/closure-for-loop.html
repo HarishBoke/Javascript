@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript: Closure -IIFE - FOR - loop - Let</title>
+
+</head>
+<body>
+    <!-- Problem Statement:
+        As User i want to print each interation of index of loop after setimeout 
+    -->
+    <div name="traditional-result">
+        <h3>Problem with Traditional way </h3>
+        <code>
+            for(var i =0; i < 5; i++){
+            setTimeout(function(){
+                console.log(i)
+            }
+            ,i*1000);
+        }
+        </code>
+        <p>Var in for...loop does not create new variable or block scope for each interation and result it 
+            override interation value at once and doesn't wait for time out.
+        </p>
+        <h3 id="traditional-result"></h3>
+        <button onclick="trationalWay()">Try now</button>
+    </div>
+
+    <div name="iife-result">
+            <h3>solved with IIFE way </h3>
+            <code>
+                    for(var i =1; i < 6; i++){
+                        (function IIFE(i){
+                            setTimeout(function(){
+                            console.log(i)
+                            document.getElementById("iife-result").innerHTML = i;
+                            }
+                            ,i*1000);
+                        })(i);
+            }
+            </code>
+            <p>IIFE Create new scope each time for i and thought it wait in setTimeout and repeat and print as expeted
+                "This is good example of closure, for..loop, setimeout, and understanding of JS"
+            </p>
+            <h3 id="iife-result"></h3>
+            <button onclick="IIFEWay()">Try now</button>
+        </div>
+
+        <div name="es6-result">
+            <h3>solved with ES6 way </h3>
+            <code>
+                    for(var i =1; i < 6; i++){
+                        (function IIFE(i){
+                            setTimeout(function(){
+                            console.log(i)
+                            document.getElementById("iife-result").innerHTML = i;
+                            }
+                            ,i*1000);
+                        })(i);
+            }
+            </code>
+            <p>Let create new block scope for each interation so it work as per ask.
+                 The problem with let keyword is internally when we transpile code of ES6 to ES5 if is nothing but try..catch block and if we get error in code with it will trow error numnber of times loop runs. Which ruin performance. so IIFE considered is the best solution for now.
+                 result of let can be found with "let-er" or es6 compiler
+            </p>
+            <h3 id="es6-result"></h3>
+            <button onclick="es6Way()">Try now</button>
+        </div>
+
+<script>
+    function trationalWay(){
+        for(var i =0; i < 5; i++){
+            setTimeout(function(){
+                console.log(i)
+                document.getElementById("traditional-result").innerHTML = i;
+            }
+            ,i*1000);
+        }
+    }
+    function IIFEWay(){
+        for(var i =1; i < 6; i++){
+            (function IIFE(i){
+                setTimeout(function(){
+                console.log(i)
+                document.getElementById("iife-result").innerHTML = i;
+                }
+                ,i*1000);
+            })(i);
+           
+        }
+    }
+    function es6Way(){
+        for(let i =1; i < 6; i++){
+            setTimeout(function(){
+                console.log(i)
+                document.getElementById("es6-result").innerHTML = i;
+            }
+            ,i*1000);
+        }
+    }
+
+</script>
+</body>
+</html>
