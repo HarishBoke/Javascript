@@ -3,13 +3,14 @@
 <html>
 <head>
 	<title>Javascript: Closure -IIFE - FOR - loop - Let</title>
-
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
     <!-- Problem Statement:
         As User i want to print each interation of index of loop after setimeout 
     -->
-    <div name="traditional-result">
+    <div name="traditional-result" class="well">
         <h3>Problem with Traditional way </h3>
         <code>
             for(var i =0; i < 5; i++){
@@ -23,10 +24,10 @@
             override interation value at once and doesn't wait for time out.
         </p>
         <h3 id="traditional-result"></h3>
-        <button onclick="trationalWay()">Try now</button>
+        <button class="btn btn-default" onclick="trationalWay()">Try now</button>
     </div>
-
-    <div name="iife-result">
+ 
+    <div name="iife-result" class="well">
             <h3>solved with IIFE way </h3>
             <code>
                     for(var i =1; i < 6; i++){
@@ -43,10 +44,10 @@
                 "This is good example of closure, for..loop, setimeout, and understanding of JS"
             </p>
             <h3 id="iife-result"></h3>
-            <button onclick="IIFEWay()">Try now</button>
-        </div>
+            <button  class="btn btn-default"onclick="IIFEWay()">Try now</button>
+    </div>
 
-        <div name="es6-result">
+        <div name="es6-result" class="well">
             <h3>solved with ES6 way </h3>
             <code>
                     for(var i =1; i < 6; i++){
@@ -64,7 +65,7 @@
                  result of let can be found with "let-er" or es6 compiler
             </p>
             <h3 id="es6-result"></h3>
-            <button onclick="es6Way()">Try now</button>
+            <button class="btn btn-default" onclick="es6Way()">Try now</button>
         </div>
 
 <script>
