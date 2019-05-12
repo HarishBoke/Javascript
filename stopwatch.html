@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Stop Watch - with laps and intervals</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            background:url(http://unsplash.it/1500/1000?image=881&blur=50) #002067;
+            color:#fff;
+        }
+        .container {
+            height: 100vh;
+            vertical-align: middle;
+            text-align: center;
+            padding:20px;
+        }
+        #stopWatch {
+            font-size: 36px;
+            text-align: center;
+        }
+        .actions {
+            list-style: none;
+
+            text-align: center
+        }
+        .actions li { 
+            background: #0251b8;
+            font-size:16px; 
+            margin:8px 10px;
+            color:#fff;
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 10%;
+            cursor: pointer;
+            user-select: none;
+            box-shadow: 1px 1px #83fffd;
+        }
+        table {
+            border:1px solid #14fdfd;
+            width: 300px;
+            margin:0px auto;
+        }
+        th {
+            background: #0251b8;
+            padding: 10px 0;
+            color: #12f3fb;
+        }
+        tr:last-child td{
+            border:none;
+        }
+        td {
+            border-bottom:1px solid #12f3fb;
+            text-align: center
+        }
+        #stopWatch .timeSpan {
+            border: 1px solid #fff;
+            display: inline-block;
+            padding:15px;
+            height: 100px;
+            width: 80px;
+            background:rgba(255,255,255,0.5);
+            color:#000;
+            border-radius: 10px;
+
+        }
+    </style>
+</head>
+<body>
+        <div class="container">
+            <div id="stopWatch"></div>
+            <ul class="actions">
+                <li onClick="takeLap()">Lap</li>
+                <li onClick="reset()">Reset</li>
+                <li onClick="stop()">Stop</li>
+                <li onClick="start()">Start</li>
+            </ul>
+                <table id="lap"> 
+                        <thead>
+                            <tr>
+                                <th>Sr.</th>
+                                <th>intervals</th>
+                            </tr>
+                        </thead>
+                        <tbody id="lapList">
+                                <colgroup>
+                                    <col style="width: 30%">
+                                    <col style="width:60px;">
+                                  </colgroup>
+                        </tbody>
+                    </table>
+        </div>  
+        <script>
+            
+            const stopWatchElement =  document.getElementById('stopWatch');
+            const lapList =  document.getElementById('lapList');
+            var count = 1;
+            let laps = [];
+            let seconds = 0, milliseconds = 0, hours = 0, minutes = 0;
+            function showStopWatch(){
+                // const date = new Date();
+                // const hours = date.getHours(0,0,0,0);
+                // const seconds = date.getSeconds(0,0,0,0);
+               
+               // start();
+                //const Milliseconds = date.getMilliseconds();
+                stopWatchElement.innerHTML = `<span class="timeSpan">${hours}</span> : <span class="timeSpan">${minutes}</span> : <span class="timeSpan">${seconds}</span> : <span class="timeSpan">${milliseconds}</span>`;
+            }
+            function start(){
+                // const date = new Date();
+                // const hours = data.sethours(0);
+                // const seconds = date.setSeconds(0);
+                // const Milliseconds = date.getMilliseconds(0);
+                setInterval(function setSeconds(){
+                    milliseconds += 10;
+                    if(milliseconds > 1000){
+                        milliseconds = 0; 
+                        seconds++;
+                    }
+                    if(seconds > 60){
+                        seconds = 0; 
+                        minutes++;
+                    }
+                    if(minutes > 60){
+                        minutes = 0;
+                        hours++;
+                    }
+
+                }, 10);
+                showStopWatch();
+            }
+            function stop(){
+                console.log('stop');
+                showStopWatch()
+            }
+            function pause(){
+
+            }
+ 
+            function takeLap(){
+                laps.push(stopWatchElement.innerHTML);
+                lapList.innerHTML += `<tr>
+                    <td>${count++}</td>    
+                    <td>${stopWatchElement.innerHTML}</td>
+                    </tr>`;
+                    //console.log(laps);
+            }
+            function reset(){
+
+            }
+
+            function init(){
+                start();
+                showStopWatch();
+                setInterval(showStopWatch, 10);
+            }
+            init();
+            
+        </script>
+</body>
+</html>
