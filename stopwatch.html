@@ -102,67 +102,68 @@
             </table>
     </div> 
         <script>
-            
-            // const stopWatchElement =  document.getElementById('stopWatch');
-            // const lapList =  document.getElementById('lapList');
-            // var count = 1;
-            // let laps = [];
-            // let seconds = 0, milliseconds = 0, hours = 0, minutes = 0;
-            // var watchInterval;
-            // var isStarted = false;
-            // function showStopWatch(){
-            //       stopWatchElement.innerHTML = `<span class="timeSpan">${hours}</span> : <span class="timeSpan">${minutes}</span> : <span class="timeSpan">${seconds}</span> : <span class="timeSpan">${milliseconds}</span>`;
-            // }
-            // function start(e){
-            //     if(!isStarted){
-            //         watchInterval = setInterval(function setTimer(){
-            //                             milliseconds += 10;
-            //                             if(milliseconds > 1000){
-            //                                 milliseconds = 0; 
-            //                                 seconds++;
-            //                             }
-            //                             if(seconds > 60){
-            //                                 seconds = 0; 
-            //                                 minutes++;
-            //                             }
-            //                             if(minutes > 60){
-            //                                 minutes = 0;
-            //                                 hours++;
-            //                             }
+          /*  
+                const stopWatchElement =  document.getElementById('stopWatch');
+                const lapList =  document.getElementById('lapList');
+                var count = 1;
+                let laps = [];
+                let seconds = 0, milliseconds = 0, hours = 0, minutes = 0;
+                var watchInterval;
+                var isStarted = false;
+                function showStopWatch(){
+                    stopWatchElement.innerHTML = `<span class="timeSpan">${hours}</span> : <span class="timeSpan">${minutes}</span> : <span class="timeSpan">${seconds}</span> : <span class="timeSpan">${milliseconds}</span>`;
+                }
+                function start(e){
+                    if(!isStarted){
+                        watchInterval = setInterval(function setTimer(){
+                                            milliseconds += 10;
+                                            if(milliseconds > 1000){
+                                                milliseconds = 0; 
+                                                seconds++;
+                                            }
+                                            if(seconds > 60){
+                                                seconds = 0; 
+                                                minutes++;
+                                            }
+                                            if(minutes > 60){
+                                                minutes = 0;
+                                                hours++;
+                                            }
 
-            //                         }, 10);
-            //         showStopWatch();    
-            //         isStarted = true;
-            //     } 
-            // }
-            // function stop(){
-            //     if(isStarted){
-            //         isStarted = false;
-            //         clearInterval(watchInterval);
-            //     }
-                
-            // }
+                                        }, 10);
+                        showStopWatch();    
+                        isStarted = true;
+                    } 
+                }
+                function stop(){
+                    if(isStarted){
+                        isStarted = false;
+                        clearInterval(watchInterval);
+                    }
+                    
+                }
 
-            // function takeLap(){
-            //     laps.push(stopWatchElement.innerHTML);
-            //     lapList.innerHTML += `<tr>
-            //         <td>${count++}</td>    
-            //         <td>${stopWatchElement.innerHTML}</td>
-            //         </tr>`;
-            // }
-            // function reset(){
-            //     seconds = 0;
-            //     milliseconds = 0;
-            //     hours = 0;
-            //     minutes = 0;
-            //     stop();
-            // }
+                function takeLap(){
+                    laps.push(stopWatchElement.innerHTML);
+                    lapList.innerHTML += `<tr>
+                        <td>${count++}</td>    
+                        <td>${stopWatchElement.innerHTML}</td>
+                        </tr>`;
+                }
+                function reset(){
+                    seconds = 0;
+                    milliseconds = 0;
+                    hours = 0;
+                    minutes = 0;
+                    stop();
+                }
 
-            // function init(){
-            //     showStopWatch();
-            //     setInterval(showStopWatch, 10);
-            // }
-            // init();
+                function init(){
+                    showStopWatch();
+                    setInterval(showStopWatch, 10);
+                }
+                init(); 
+            */
             const stopWatchElement =  document.getElementById('stopWatch');
             const stopWatchActions = document.getElementById('stopWatchActions');
             const lapList =  document.getElementById('lapList');
@@ -181,26 +182,26 @@
                     this.showStopWatch();
                     if(!isStarted){
                         watchInterval = setInterval(function setTimer(){
-                                            milliseconds += 10;
-                                            if(milliseconds > 1000){
-                                                milliseconds = 0; 
-                                                seconds++;
-                                            }
-                                            if(seconds > 60){
-                                                seconds = 0; 
-                                                minutes++;
-                                            }
-                                            if(minutes > 60){
-                                                minutes = 0;
-                                                hours++;
-                                            }
+                                milliseconds += 10;
+                                if(milliseconds > 1000){
+                                    milliseconds = 0; 
+                                    seconds++;
+                                }
+                                if(seconds > 60){
+                                    seconds = 0; 
+                                    minutes++;
+                                }
+                                if(minutes > 60){
+                                    minutes = 0;
+                                    hours++;
+                                }
 
-                                        }, 10);
+                            }, 10);
                         this.showStopWatch();    
                         isStarted = true;
                     } 
                    
-              }
+                }
                 this.stop = function(){
                     if(isStarted){
                         isStarted = false;
@@ -232,6 +233,11 @@
                 }
             }
           
+            function init(){
+                var stopWatch = new ConstructStopWatch();
+                stopWatch.init();
+            }
+            init();
             // NOTE:: create instance object of constructor function: and call `instance.start()`
             
         </script>
