@@ -76,32 +76,31 @@
     </style>
 </head>
 <body>
-        <div class="container">
-            <div id="stopWatch">
-                <span class="timeSpan">00</span> : <span class="timeSpan">00</span> : <span class="timeSpan">00</span> : <span class="timeSpan">00</span>`
-            </div>
-            <!-- <ul id="stopWatchActions" class="actions">
-                <li id="lap">Lap</li>
-                <li id="reset">Reset</li>
-                <li id="stop">Stop</li>
-                <li id="start">Start</li>
-                
-            </ul> -->
-                <table id="lap"> 
-                        <thead>
-                            <tr>
-                                <th>Sr.</th>
-                                <th>intervals</th>
-                            </tr>
-                        </thead>
-                        <tbody id="lapList">
-                                <colgroup>
-                                    <col style="width: 30%">
-                                    <col style="width:60px;">
-                                  </colgroup>
-                        </tbody>
-                </table>
-        </div>  
+    <div class="container">
+        <div id="stopWatch">
+            <span class="timeSpan">00</span> : <span class="timeSpan">00</span> : <span class="timeSpan">00</span> : <span class="timeSpan">00</span>
+        </div>
+        <ul id="stopWatchActions" class="actions">
+            <li id="lap">Lap</li>
+            <li id="reset">Reset</li>
+            <li id="stop">Stop</li>
+            <li id="start">Start</li>
+        </ul>
+            <table id="lap"> 
+                    <thead>
+                        <tr>
+                            <th>Sr.</th>
+                            <th>intervals</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lapList">
+                            <colgroup>
+                                <col style="width: 30%">
+                                <col style="width:60px;">
+                              </colgroup>
+                    </tbody>
+            </table>
+    </div> 
         <script>
             
             // const stopWatchElement =  document.getElementById('stopWatch');
@@ -224,35 +223,15 @@
                     minutes = 0;
                     this.stop();
                 }
-                // this.init = function(){
-                //     this.showStopWatch();
-                //     document.getElementById('start').addEventListener('click', function(){
-                //         this.start(this);
-                //     });
-                //     document.getElementById('lap').addEventListener('click', function(){
-                //         this.takeLap(this);
-                //     });
-                //     document.getElementById('stop').addEventListener('click', function(){
-                //     });
-                //     document.getElementById('reset').addEventListener('click', function(){
-                //         this.reset(this);
-                //     });
-                // }
-                
+                this.init = function(){
+                    this.showStopWatch();
+                    document.getElementById('start').addEventListener('click', () => this.start(this));
+                    document.getElementById('lap').addEventListener('click', this.takeLap.bind(this));
+                    document.getElementById('stop').addEventListener('click', this.stop.bind(this));
+                    document.getElementById('reset').addEventListener('click', this.reset.bind(this));
+                }
             }
-            function init(){
-                //var sw = new StopWatch();
-                //sw.showStopWatch();
-                
-                // document.getElementById('start').addEventListener('click', sw.start);
-                // document.getElementById('stop').addEventListener('click', sw.start);
-                // document.getElementById('reset').addEventListener('click', sw.start);
-                // document.getElementById('lap').addEventListener('click', sw.start);
-
-                //
-            }
-            init();
-            
+          
             // NOTE:: create instance object of constructor function: and call `instance.start()`
             
         </script>
