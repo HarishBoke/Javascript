@@ -20,12 +20,6 @@ function rootReducer(state = initialState, action){
 
             break;
     }
-    // if(action.type === ADD_ARTICLE) {
-    //     //state.articles.push(action.payload); can not be mutate as it breaks redux principle
-    //     return Object.assign({},state,{
-    //         articles:  state.articles.concat(action.payload)
-    //     });
-    // }
     return state;
 }
 export default rootReducer;
