@@ -3,12 +3,17 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import ButtonCounter from './components/ButtonCounter';
+import ButtonCounterRedux from './components/ButtonCounter_redux';
 
 function App() {
   
   return (
     <div className="App">
       <ButtonCounter />
+
+    <br></br>
+      <label>Button Redux counter:</label>
+      <ButtonCounterRedux />
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>

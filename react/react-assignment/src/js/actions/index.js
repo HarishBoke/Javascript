@@ -1,10 +1,15 @@
-import {ADD_ARTICLE} from '../constants/action-types';
+import {ADD_ARTICLE, SET_COUNTER} from '../constants/action-types';
 
-function addArticle(payload){
+export function addArticle(payload){
     return {
         type:ADD_ARTICLE,
         payload
     }
 }
+export function setCounter(payload){
+    return {
+        type:SET_COUNTER,
+        payload
+    }
+}
 
-export default addArticle;
