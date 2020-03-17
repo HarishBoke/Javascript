@@ -12,6 +12,7 @@
   "author": "Harish Boke",
   "license": "ISC",
   "dependencies": {
+    "react": "^16.13.0",
     "redux": "^4.0.5"
   }
 }
