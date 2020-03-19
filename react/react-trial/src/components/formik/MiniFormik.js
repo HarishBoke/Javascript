@@ -40,11 +40,18 @@ class MiniFormikImplmentation extends Component {
             }, 
           }));
     }
-
+    handleSubmit = e => {
+        e.preventDefault();
+        // validate 
+        // isvalided && submit
+        this.props.onSubmit(this.state.values)
+    }
     render(){
         return this.props.children({
             ...this.state,
             handleChange: this.handleChange,
+            handleBlur: this.handleBlur,
+            handleSubmit:this.handleSubmit
         })
     }
 }
@@ -73,12 +80,21 @@ export default class MiniFormik extends Component {
     render() {
       return (
           // initial values are noting but the state in normal form
-          <MiniFormikImplmentation initialValues={{
+          <div>
+              <h1>MiniFormik</h1>
+
+              <MiniFormikImplmentation initialValues={{
             isGoing: true,
             numberOfGuests: 2
-          }}>
-              {(values, handleChange) =>
-                    <form>
+          }}
+          onSubmit={values => alert(JSON.stringify(values, null, 2))}
+          >
+              {/* This is before prop introduce, approach 1 // {(values, handleChange) => */}
+              {(props) => {
+                  const {values, errors, touched, handleBlur, handleChange, handleSubmit} = props
+                  return (
+                      // on enter will use handle submit
+                    <form onSubmit={handleSubmit}>
                     <label>
                         Is going:
                         <input
@@ -100,11 +116,19 @@ export default class MiniFormik extends Component {
                        //  onChange={this.handleInputChange}
                          checked={values.numberOfGuests}
                          onChange={handleChange}
+                         onBlur={handleBlur}
                          />
                     </label>
+                    <pre>
+                        {
+                            JSON.stringify(props, null, 2)
+                        }
+                    </pre>
                     </form>
-                }
+              )}}
           </MiniFormikImplmentation>
+          </div>
+          
       );
     }
   }
