@@ -1,0 +1,23 @@
+<!doctype html>
+
+<html>
+  <head>
+      <title>Measure JS heap memory</title>
+    <script>
+        function measureMemory() {
+            const arraySize = 25 * Math.pow(1000, 2);
+            console.log(`${performance.memory.usedJSHeapSize / Math.pow(1000, 2)} MB`);
+            const array1 = new Array(arraySize).fill(1.1);
+            console.log(`${performance.memory.usedJSHeapSize / Math.pow(1000, 2)} MB`);
+            const array2 = new Array(arraySize).fill(1);
+            console.log(`${performance.memory.usedJSHeapSize / Math.pow(1000, 2)} MB`);
+            document.getElementById("showMemory").innerHTML = `${performance.memory.usedJSHeapSize / Math.pow(1000, 2)} MB`
+        }
+    </script>
+  </head>
+
+  <body>
+      <h1>Memory Used: <span id="showMemory" style="color: red"></span></h1>
+    <button onclick="measureMemory()">Measure Memory</button>
+  </body>
+</html>
