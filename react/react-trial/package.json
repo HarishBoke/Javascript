@@ -16,7 +16,10 @@
     "babel-core": "^6.26.3",
     "babel-jest": "^25.1.0",
     "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2"
+    "enzyme-adapter-react-16": "^1.15.2",
+    "react-geocode": "^0.2.1",
+    "react-google-autocomplete": "^1.1.2",
+    "react-google-maps": "^9.4.5"
   },
   "scripts": {
     "start": "react-scripts start",

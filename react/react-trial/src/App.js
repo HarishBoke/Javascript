@@ -2,11 +2,18 @@ import React from 'react';
 //  import logo from './logo.svg';
 // import './App.css';
 import MiniFormik from './components/formik/MiniFormik'
+import Home from "./components/maps/Home";
 
 function App() {
   return (
     <div className="App">
       <MiniFormik />
+      <br />
+      <br />
+      <h1>Maps </h1>
+      <Home />
+
+<br /><br />
       <header className="App-header">
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <p>
