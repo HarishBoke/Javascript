@@ -3,6 +3,7 @@ import React from 'react';
 // import './App.css';
 import MiniFormik from './components/formik/MiniFormik'
 import Home from "./components/maps/Home";
+import DemoApp from './components/maps/markerCluster';
 
 function App() {
   return (
@@ -28,6 +29,11 @@ function App() {
           Learn React
         </a>
       </header>
+
+
+
+      <br></br>
+      <DemoApp />
     </div>
   );
 }
