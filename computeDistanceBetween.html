@@ -1,0 +1,44 @@
+<!Doctype html>
+<!-- // https://jsfiddle.net/HarishBoke/sywg7k9z/27/ -->
+<html>  
+    <head>
+        <title>Compute Distance from one to another Distance</title>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=geometry"></script>
+   
+    </head>
+    <body>
+      <pre id="output"></pre>  
+      <script defer type="text/javascript">
+        function printDistance(from, to) {
+          var output = '';
+    
+          to.forEach(function(to){
+            output += from[0] + ' to ' + to[0] + ': ' + calculateDistanceInMeters(from[1], to[1])
+          });
+    
+          document.getElementById('output').innerText = output;
+        }
+    
+        function calculateDistanceInMeters(from, to) {
+          return 	google.maps.geometry.spherical.computeDistanceBetween(from, to).toFixed(1) + ' Meters\n';
+        } 
+    
+        function calculateDistanceInKM(from, to) {
+          return 	(google.maps.geometry.spherical.computeDistanceBetween(from, to) / 1000).toFixed(1) + ' KM\n';
+        } 
+    
+        function init() {
+          var dataFrom = ['Aundh Gaon', new google.maps.LatLng(18.5576982,73.7898289)];
+    
+          var dataTo = [
+                  ['Aundh Chroma', new google.maps.LatLng(18.553635,73.8075303)],
+                  ['Gaikwad Petrol Pump', new google.maps.LatLng(18.5578398,73.8019017)],
+                  ['Westend Mall', new google.maps.LatLng(18.5615143,73.8049603)]
+          ];
+    
+          printDistance(dataFrom, dataTo);
+        }
+        init();
+      </script>    
+    </body>
+</html>
