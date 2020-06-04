@@ -1,4 +1,4 @@
-import React from "react"
+import React, {Fragment} from "react"
 
 import { compose, withProps, withHandlers } from "recompose"
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
@@ -45,7 +45,7 @@ const MapWithAMarkerClusterer = compose(
     </GoogleMap>
   );
   
-  export default class DemoApp extends React.PureComponent {
+  export default class ClusterMap extends React.PureComponent {
     componentWillMount() {
       this.setState({ markers: [] })
     }
@@ -67,7 +67,10 @@ const MapWithAMarkerClusterer = compose(
   
     render() {
       return (
-        <MapWithAMarkerClusterer markers={this.state.markers} />
+        <Fragment>
+           <h1>Maps</h1>
+          <MapWithAMarkerClusterer markers={this.state.markers} />
+        </Fragment>        
       )
     }
   }

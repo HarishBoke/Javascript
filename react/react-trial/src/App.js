@@ -1,39 +1,55 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom';
 //  import logo from './logo.svg';
 // import './App.css';
+
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav'
+
+
 import MiniFormik from './components/formik/MiniFormik'
-import Home from "./components/maps/Home";
-import DemoApp from './components/maps/markerCluster';
+import Map from './components/maps';
+import Hooks from './components/hooks'
+
 
 function App() {
   return (
     <div className="App">
-      <MiniFormik />
-      <br />
-      <br />
-      <h1>Maps </h1>
-      <Home />
+      <Container>
 
-<br /><br />
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-
-
-
-      <br></br>
-      <DemoApp />
+     
+      <Router>
+      <Nav>       
+        <Nav.Item>
+          <Nav.Link href='/formik'>Formik</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link href='/map'>Active</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link href="/hooks">hooks</Nav.Link>
+        </Nav.Item>
+      </Nav>
+        <switch>
+          <Route path='/formik' >
+            <MiniFormik />
+          </Route>
+          <Route path='/map' >
+            <Map />
+          </Route>
+          <Route path='/hooks' >
+            <Hooks />
+          </Route>          
+        </switch>
+         
+      </Router>
+      </Container>
     </div>
   );
 }
