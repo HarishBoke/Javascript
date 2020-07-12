@@ -5,7 +5,8 @@
 // Expected Output :
 // [4, 5, 8, 10, 12, 13]
 
-// Date: 12 July 2020
+// Date: 12 July 2020 
+// Topic: Array
 
 const array1 = [1,0,2,3,4];
 const array2 = [3,5,6,7,8,13];
